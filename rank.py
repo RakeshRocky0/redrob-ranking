@@ -352,20 +352,34 @@ def main():
     
     scored_candidates = []
     
-    with open(candidates_file, "r", encoding="utf-8") as f:
-        for line in f:
-            if not line.strip():
-                continue
-            cand = json.loads(line)
-            cid = cand.get("candidate_id")
-            score, matched_skills, is_hp = score_candidate(cand)
-            if not is_hp:
-                scored_candidates.append({
-                    "candidate_id": cid,
-                    "score": score,
-                    "matched_skills": matched_skills,
-                    "candidate_data": cand
-                })
+    try:
+        with open(candidates_file, "r", encoding="utf-8") as f:
+            content = f.read().strip()
+            if content.startswith("["):
+                candidates_list = json.loads(content)
+            else:
+                candidates_list = [json.loads(line) for line in content.splitlines() if line.strip()]
+    except Exception as e:
+        print(f"Direct read failed, falling back to line-by-line stream: {e}")
+        candidates_list = []
+        with open(candidates_file, "r", encoding="utf-8") as f:
+            for line in f:
+                if line.strip():
+                    try:
+                        candidates_list.append(json.loads(line))
+                    except:
+                        pass
+
+    for cand in candidates_list:
+        cid = cand.get("candidate_id")
+        score, matched_skills, is_hp = score_candidate(cand)
+        if not is_hp:
+            scored_candidates.append({
+                "candidate_id": cid,
+                "score": score,
+                "matched_skills": matched_skills,
+                "candidate_data": cand
+            })
                 
     print(f"Total candidates scored (excluding honeypots): {len(scored_candidates)}")
     
