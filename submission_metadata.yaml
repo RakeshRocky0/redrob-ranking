@@ -4,23 +4,23 @@
 # ============================================================================
 # Team identity
 # ============================================================================
-team_name: "antigravity-ranker"  # Replace with your registered team name
+team_name: "Rakesh_Nulu"  # Replace with your registered team name
 
 primary_contact:
-  name: "Antigravity User"
-  email: "user@example.com"       # Replace with your primary email
-  phone: "+91-9999999999"        # Replace with your phone number
+  name: "Rakesh_Nulu"
+  email: "nulurakesh@gmail.com"       # Replace with your primary email
+  phone: "+91-7995452957"        # Replace with your phone number
 
 team_members:
-  - name: "Antigravity User"
-    email: "user@example.com"
-    role: "ML Engineer"
+  - name: "Rakesh_Nulu"
+    email: "nulurakesh@gmail.com"
+    role: "AI Engineer"
 
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
-github_repo: "https://github.com/YOUR_USERNAME/YOUR_REPO"  # Update with your public repo link
-sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"  # Update with your sandbox URL
+github_repo: "https://github.com/RakeshRocky0/redrob-ranking.git"  # Update with your public repo link
+sandbox_link: "https://colab.research.google.com/drive/1FtZdtYTkZwkfcSom1JRoqcjJw9DAbrat?usp=sharing"  # Update with your sandbox URL
 
 reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
 
