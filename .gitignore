@@ -1,0 +1,11 @@
+# Ignore candidate pool datasets
+candidates.jsonl
+candidates.jsonl.gz
+
+# Ignore python caches
+__pycache__/
+*.pyc
+
+# Ignore OS files
+.DS_Store
+Thumbs.db

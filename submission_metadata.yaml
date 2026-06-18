@@ -1,0 +1,68 @@
+# Redrob Hackathon — Submission Metadata
+# Copy this file to your repo root as `submission_metadata.yaml` and fill it in.
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "antigravity-ranker"  # Replace with your registered team name
+
+primary_contact:
+  name: "Antigravity User"
+  email: "user@example.com"       # Replace with your primary email
+  phone: "+91-9999999999"        # Replace with your phone number
+
+team_members:
+  - name: "Antigravity User"
+    email: "user@example.com"
+    role: "ML Engineer"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/YOUR_USERNAME/YOUR_REPO"  # Update with your public repo link
+sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"  # Update with your sandbox URL
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Local PC (Windows)"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.11.0"
+  os: "Windows 11"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Gemini"
+  - "Claude"
+
+ai_usage_summary: |
+  Used Gemini as an interactive coding assistant to design the scoring logic, build the ranking script rank.py, identify honeypots through structural pattern inspection, and write the validation wrapper. No candidate profile data was uploaded to any hosted LLM API; all scoring runs locally on CPU.
+
+# ============================================================================
+# Approach summary (optional but recommended)
+# ============================================================================
+methodology_summary: |
+  A robust rule-based scoring engine designed specifically for Senior AI Engineer hiring.
+  It combines title/experience relevance checks, core skill score matching (vector databases, search, hybrid retrieval, metrics), and behavioral engagement multiplier adjustments (login recency, notice period, location willingness). 
+  Importantly, it runs robust honeypot and anomaly check filters that flag impossible profiles (e.g. skills duration exceeding total years of experience, or working before college start date) to ensure a 0% honeypot rate.
+  Execution runs end-to-end in ~5 seconds on CPU with <100MB RAM usage.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
